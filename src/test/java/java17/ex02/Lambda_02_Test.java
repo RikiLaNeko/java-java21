@@ -36,9 +36,8 @@ public class Lambda_02_Test {
 
         List<Person> personList = Data.buildPersonList(100);
 
-        // TODO transformer la liste de personnes en liste de comptes
-        // TODO tous les objets comptes ont un solde à 100 par défaut
-        List<Account> result = map(personList, null);
+        // Transformer la liste de personnes en liste de comptes avec un solde par défaut de 100
+        List<Account> result = map(personList, person -> new Account(person, 100));
 
         assert result.size() == personList.size();
         for (Account account : result) {
@@ -46,5 +45,5 @@ public class Lambda_02_Test {
             assert account.getOwner() != null;
         }
     }
-    // end::test_map_person_to_account[]
+// end::test_map_person_to_account[]
 }
